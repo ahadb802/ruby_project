@@ -6,4 +6,9 @@ class Author
     @last_name = last_name
     @items = items
   end
+
+  def add_item(element)
+    @items << element
+    element.items = self
+  end
 end
