@@ -7,4 +7,3 @@ class Author
     @items = items
   end
 end
-
