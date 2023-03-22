@@ -46,4 +46,18 @@ describe Item do
     item = Item.new(DateTime.now.prev_year(5).to_time, false)
     expect(item.can_be_archived?).to be false
   end
+
+  it 'sets the archived flag to true when the item can be archived' do
+    item = Item.new(DateTime.now.prev_year(11).to_time, false)
+    expect(item.instance_variable_get(:@archived)).to eq(false)
+    item.move_to_archive
+    expect(item.instance_variable_get(:@archived)).to eq(true)
+  end
+
+  it 'does not set the archived flag to true when the item cannot be archived' do
+    item = Item.new(DateTime.now.prev_year(5).to_time, false)
+    expect(item.instance_variable_get(:@archived)).to eq(false)
+    item.move_to_archive
+    expect(item.instance_variable_get(:@archived)).to eq(false)
+  end
 end
