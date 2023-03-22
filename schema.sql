@@ -6,3 +6,8 @@ CREATE TABLE item (
   publish_date DATE NOT NULL,
   archived BOOLEAN NOT NULL
 );
+
+CREATE TABLE genre (
+  id INT PRIMARY KEY,
+  name VARCHAR(30) NOT NULL  
+);
