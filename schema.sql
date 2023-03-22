@@ -11,3 +11,8 @@ CREATE TABLE genre (
   id INT PRIMARY KEY,
   name VARCHAR(30) NOT NULL  
 );
+
+CREATE TABLE musicAlbum (
+  id INT PRIMARY KEY REFERENCES item(id),
+  on_spotify BOOLEAN NOT NULL
+);
