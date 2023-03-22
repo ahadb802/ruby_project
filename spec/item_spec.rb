@@ -32,12 +32,10 @@ describe Item do
 
   it 'returns true when the item is more than 10 years old' do
     item = Item.new(DateTime.now.prev_year(11).to_time, false)
-    puts item.can_be_archived?
     expect(item.can_be_archived?).to be true
   end
 
   it 'returns false when the item is exactly 10 years old' do
-    puts DateTime.now.prev_year(10)
     item = Item.new(DateTime.now.prev_year(10).to_time, false)
     expect(item.can_be_archived?).to be false
   end

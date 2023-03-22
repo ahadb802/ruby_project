@@ -12,18 +12,17 @@ describe Genre do
   end
 
   it 'adds the item to its list of items' do
-    genrea = Genre.new('Pop')
+    genre = Genre.new('Pop')
     item = Item.new(DateTime.now.prev_year(10).to_time, false)
-    item.genre
-    genrea.add_item(item)
-
-    expect(genrea.instance_variable_get(:@items)).to include(item)
+    item.genre(genre)
+    genre.add_item(item)
+    expect(genre.instance_variable_get(:@items)).to include(item)
   end
 
   it 'sets the genre of the item to itself' do
     genre = Genre.new('Pop')
-    item = Item.new(DateTime.now.prev_year(10).to_time, false)
+    item = Item.new(DateTime.now.prev_year(5).to_time, false)
     genre.add_item(item)
-    expect(item.genre).to eq(genre)
+    expect(item.find_genre).to eq(genre)
   end
 end
