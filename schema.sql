@@ -16,6 +16,7 @@ CREATE TABLE musicAlbum (
   id INT PRIMARY KEY REFERENCES item(id),
   on_spotify BOOLEAN NOT NULL
 );
+<<<<<<< HEAD
 
 CREATE TABLE game (
   id INT PRIMARY KEY REFERENCES item(id),
@@ -30,3 +31,5 @@ CREATE TABLE author (
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL  
 );
+=======
+>>>>>>> 5a5a971c082b84bfd16e2cb15dd58f28ff7e23b2
