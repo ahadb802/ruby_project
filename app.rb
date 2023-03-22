@@ -2,12 +2,32 @@ require_relative './src/books'
 require_relative 'item'
 require_relative './src/label'
 require 'date'
-
+require 'json'
 class App
   attr_reader :books
 
   def initialize
     @books = []
+    load_data
+    @data_changed = false
+  end
+
+  def load_data
+    return unless File.file?('books.json')
+
+    books_data = JSON.parse(File.read('books.json'))
+    books_data.each do |book|
+      @books << Book.new(book['publisher'], book['cover_state'], Date.parse(book['publish_date']), book['archived'])
+    end
+  end
+
+  def save_data
+    return unless @data_changed
+
+    books_data = @books.map(&:to_h)
+
+    File.write('books.json', JSON.pretty_generate(books_data), mode: 'w')
+    @data_changed = false
   end
 
   def list_all_books
@@ -28,6 +48,7 @@ class App
   end
 
   def add_book
+    @data_changed = true
     puts "Enter the book's publisher:"
     publisher = gets.chomp
     puts "Enter the book's cover state:"
@@ -40,6 +61,7 @@ class App
   end
 
   def exit_app
+    save_data
     puts 'Thanks For Using me'
     exit
   end
