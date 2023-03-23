@@ -32,4 +32,15 @@ class AlbumList
     @albums << MusicAlbum.new(spotify, publish_date, archived)
     puts 'Music Album registered succesfully'
   end
+
+  def save_albums
+    albums = @albums.map do |album|
+      {
+        spotify: album.on_spotify,
+        publish_date: album.publish_date,
+        archived: album.archived
+      }
+    end
+    @albums_data.write(albums)
+  end
 end
