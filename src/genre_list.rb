@@ -31,12 +31,7 @@ class GenreList
   end
 
   def load_genres
-    puts "file_empty: #{@genres_data.file_empty}"
-    puts "file_exist: #{@genres_data.file_exist}"
-    puts "read: #{@genres_data.read}"
-
     if @genres_data.file_exist && @genres_data.file_empty == false
-      puts @genres_data
       @genres_data.read.map do |genre|
         @genres << Genre.new(genre['name'])
       end
