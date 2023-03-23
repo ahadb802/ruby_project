@@ -25,7 +25,7 @@ CREATE TABLE books (
   FOREIGN KEY (item_id) REFERENCES items(id)
 );
 
-CREATE TABLE labels (
+CREATE TABLE label (
   id INTEGER PRIMARY KEY,
   color TEXT NOT NULL,
   title TEXT NOT NULL
