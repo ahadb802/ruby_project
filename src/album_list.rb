@@ -15,7 +15,7 @@ class AlbumList
     elsif spotify == 'n'
       spotify = false
     end
-    puts 'Please enter the publish date?'
+    puts 'Please enter the publish date (YYYY-MM-DD)?'
     publish_date = gets.chomp
     puts 'Is the album archived? (y/n)'
     archived = gets.chomp
