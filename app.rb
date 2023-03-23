@@ -19,7 +19,6 @@ class App
     load_data
     @data_changed = false
     @games = []
-    @authors = []
   end
 
   def load_data
@@ -90,19 +89,6 @@ class App
     end
   end
 
-  def list_authors
-    if @authors.empty?
-      puts 'No authors available'
-    else
-      @authors.each_with_index do |author, index|
-        puts '*** Author List ***'
-        puts "
-        #{index} - Author name: #{author.first_name}, #{author.last_name}"
-        puts "\n"
-      end
-    end
-  end
-
   def games_list
     if @games.empty?
       puts 'No games available'
@@ -139,13 +125,9 @@ class App
     puts 'Game added!'
   end
 
-  def authors_list
-    Author.all.each_with_index do |author, index|
-      puts '**** Author List ****'
-      puts "
-      #{index} - Name: #{author.first_name} - Last Name: #{author.last_name}"
-      puts "\n"
-    end
+  def list_authors
+    author = Author.new('John', 'Smith')
+    puts "#{author.first_name}, #{author.last_name}"
   end
 
   def exit_app
