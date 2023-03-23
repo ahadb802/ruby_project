@@ -1,5 +1,5 @@
 class Item
-  attr_accessor :publish_date
+  attr_accessor :publish_date, :label
 
   def initialize(publish_date, archived)
     @id = Time.now.to_f.to_s.gsub('.', '')
