@@ -4,6 +4,7 @@ require_relative './menu'
 menu = Menu.new
 app = App.new
 app.albums.load_albums
+app.genres.load_genres
 menu.add_option('List all books', -> { app.list_all_books })
 menu.add_option('List all Labels', -> { app.list_all_labels })
 menu.add_option('List all Music Albums', -> { app.albums.list_all_albums })

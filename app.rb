@@ -2,15 +2,17 @@ require_relative './src/books'
 require_relative 'item'
 require_relative './src/label'
 require_relative './src/album_list'
+require_relative './src/genre_list'
 require 'date'
 require 'json'
 class App
-  attr_accessor :albums
+  attr_accessor :albums, :genres
   attr_reader :books
 
   def initialize
     @books = []
     @albums = AlbumList.new
+    @genres = GenreList.new
     load_data
     @data_changed = false
   end
