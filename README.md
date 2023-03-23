@@ -24,9 +24,6 @@ After you're finished please remove all the comments and instructions!
 
 <div align="center">
 
-  <img src="" alt="logo" width="160"  height="auto" />
-  <br/>
-
   <h3><b>Ruby Capstone Project</b></h3>
 
 </div>
@@ -56,7 +53,7 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 School Library App
+# 📖 App Catalog Of My Things
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -164,8 +161,8 @@ Clone this repository to your desired folder:
 
 
 ```sh
-  cd my-folder
-  git clone https://github.com/ahadb802/oop_school_library.git
+  cd ruby_project
+  git clone https://github.com/ahadb802/ruby_project.git
 ```
 
 
@@ -196,15 +193,23 @@ To run the project, execute the following command:
 
 - GitHub: [@ahadb802](https://github.com/ahadb802)
 
+👤 **Giovanni Juliao**
+
+- GitHub: [@gjuliao](https://github.com/gjuliao)
+
+👤 **Shahadat Hossain**
+
+- GitHub: [@shahadat3669](https://github.com/shahadat3669)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Styling of the webpage**
-- [ ] **Animation to add or remove functionality**
-- [ ] **Adding responsiveness**
+- [ ] **Adding the source**
+- [ ] **Add the book**
+- [ ] **Add Label**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -214,7 +219,7 @@ To run the project, execute the following command:
 
 Contributions, issues, and feature requests are welcome! Add suggestions by opening new issues.
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/ahadb802/ruby_project/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
