@@ -15,6 +15,12 @@ class GenreList
     puts 'Genre registered succesfully'
   end
 
+  def list_all_genres
+    @genres.each do |genre|
+      puts "  - name: #{genre.name}"
+    end
+  end
+
   def save_genres
     genres = @genres.map do |genre|
       {
@@ -22,5 +28,15 @@ class GenreList
       }
     end
     @genres_data.write(genres)
+  end
+
+  def load_genres
+    if @genres_data.file_exist && @genres_data.file_empty == false
+      @genres_data.read.map do |genre|
+        @genres << Genre.new(genre['name'])
+      end
+    else
+      @genres_data.not_exist_create_new
+    end
   end
 end
