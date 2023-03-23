@@ -69,12 +69,27 @@ class App
     puts 'Book added!'
   end
 
+  def load_games
+    return unless File.file?('games.json')
+
+    games_data = JSON.parse(File.read('games.json'))
+    games_data.each do |game|
+      last_played = Date.parse(game['last_played_at'])
+      date = Date.parse(game['publish_date'])
+      @games << Game.new(game['multiplayer'], last_played, date, game['archived'])
+    end
+  end
+
   def games_list
-    Game.all.each_with_index do |game, index|
-      puts '**** Games List ****'
-      puts "
-      #{index} - Multiplayer: #{game.multiplayer} - Last Played at: #{game.last_played_at}"
-      puts "\n"
+    if @games.empty?
+      puts 'No games available'
+    else
+      @games.each_with_index do |game, index|
+        puts '**** Games List ****'
+        puts "
+        #{index} - Multiplayer Name: #{game.multiplayer} - Last Played at: #{game.last_played_at}"
+        puts "\n"
+      end
     end
   end
 
