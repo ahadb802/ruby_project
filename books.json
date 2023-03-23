@@ -4,5 +4,11 @@
     "cover_state": "bad",
     "publish_date": "2022-01-01",
     "archived": false
+  },
+  {
+    "publisher": "6",
+    "cover_state": "asdf",
+    "publish_date": "2022-01-01",
+    "archived": false
   }
 ]

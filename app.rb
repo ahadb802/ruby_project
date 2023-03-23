@@ -13,6 +13,7 @@ class App
     @books = []
     load_data
     @data_changed = false
+    @games = []
   end
 
   def load_data
@@ -76,12 +77,23 @@ class App
     puts 'Enter the game multiplayer: '
     multiplayer = gets.chomp
     puts 'Enter the last date it was played (YYYY-MM-DD): '
-    played_date = gets.chomp
-    puts "Enter the book's publish date (YYYY-MM-DD):"
+    last_played_at = gets.chomp
+    puts "Enter the game's publish date (YYYY-MM-DD):"
     publish_date = gets.chomp
-    game = Game.new(multiplayer, played_date, Date.parse(publish_date))
-    @game << game
-    puts 'Book added!'
+    puts 'Is it archived (Y/N): '
+    archived = gets.chomp
+    game = Game.new(multiplayer, last_played_at, publish_date, archived)
+    @games << game
+    games_list = @games.map do |e|
+      [
+        e.multiplayer,
+        e.archived,
+        e.publish_date,
+        e.last_played_at
+      ]
+    end
+    save_game(games_list)
+    puts 'Game added!'
   end
 
   def authors_list
