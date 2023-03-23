@@ -1,5 +1,6 @@
 require_relative './app'
 require_relative './menu'
+require_relative './preserve_data'
 
 menu = Menu.new
 app = App.new

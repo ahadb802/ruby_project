@@ -2,10 +2,10 @@ require_relative './src/books'
 require_relative 'item'
 require_relative 'game'
 require_relative 'author'
+require_relative 'preserve_data'
 require_relative './src/label'
 require 'date'
 require 'json'
-require 'preserve_data'
 class App
   attr_reader :books
 
