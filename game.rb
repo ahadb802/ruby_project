@@ -11,11 +11,6 @@ class Game < Item
   end
 
   def can_be_archived?()
-    today = Time.now
-    total = today.year - date.year
-    total -= 1 if
-        date.month > today.month or
-        (date.month >= today.month and date.day > today.day)
-    super && (total > 2)
+    super && ((Date.today.year - @last_played_at.year) > 2)
   end
 end
