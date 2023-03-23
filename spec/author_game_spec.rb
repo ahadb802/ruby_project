@@ -13,6 +13,10 @@ describe Author do
       it 'test first name' do
         expect(author.first_name).to eql 'Michael'
       end
+
+      it 'test last name' do
+        expect(author.last_name).to eql 'Jordan'
+      end
     end
   end
 end
