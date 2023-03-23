@@ -17,6 +17,20 @@ CREATE TABLE musicAlbum (
   on_spotify BOOLEAN NOT NULL
 );
 
+CREATE TABLE game (
+  id INT PRIMARY KEY REFERENCES item(id),
+  multiplayer BOOLEAN NOT NULL,
+  last_played_at DATE,
+  item_id INT
+  FOREIGN KEY (item_id) REFERENCES item(id
+);
+
+CREATE TABLE author (
+  id INT PRIMARY KEY REFERENCES item(id),
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL  
+);
+
 CREATE TABLE books (
   id INTEGER PRIMARY KEY,
   publisher TEXT NOT NULL,
