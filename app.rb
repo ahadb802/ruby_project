@@ -80,6 +80,15 @@ class App
     end
   end
 
+  def load_authors
+    return unless File.file?('authors.json')
+
+    authors_data = JSON.parse(File.read('authors.json'))
+    authors_data.each do |author|
+      @authors << Author.new(author['first_name'], author['last_name'])
+    end
+  end
+
   def games_list
     if @games.empty?
       puts 'No games available'
@@ -116,13 +125,9 @@ class App
     puts 'Game added!'
   end
 
-  def authors_list
-    Author.all.each_with_index do |author, index|
-      puts '**** Author List ****'
-      puts "
-      #{index} - Name: #{author.first_name} - Last Name: #{author.last_name}"
-      puts "\n"
-    end
+  def list_authors
+    author = Author.new('John', 'Smith')
+    puts "#{author.first_name}, #{author.last_name}"
   end
 
   def exit_app
