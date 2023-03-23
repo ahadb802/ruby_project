@@ -36,7 +36,9 @@ describe Game do
       expect(newgame.instance_variable_get(:@archived)).to eq(true)
     end
 
-    it 'can be archived?' do
+    it 'returns false for books less than 10 years old and with good cover state' do
+      game = Game.new('multiplayer_ex', Date.new(2000, 1, 1), Date.today, false)
+      expect(game.can_be_archived?).to be_falsy
     end
   end
 end
