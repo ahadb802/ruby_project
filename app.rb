@@ -1,5 +1,8 @@
 require_relative './src/books'
 require_relative 'item'
+require_relative 'game'
+require_relative 'author'
+require_relative 'preserve_data'
 require_relative './src/label'
 require 'date'
 require 'json'
@@ -10,6 +13,7 @@ class App
     @books = []
     load_data
     @data_changed = false
+    @games = []
   end
 
   def load_data
@@ -58,6 +62,47 @@ class App
     book = Book.new(publisher, cover_state, Date.parse(publish_date), false)
     @books << book
     puts 'Book added!'
+  end
+
+  def games_list
+    Game.all.each_with_index do |game, index|
+      puts '**** Games List ****'
+      puts "
+      #{index} - Multiplayer: #{game.multiplayer} - Last Played at: #{game.last_played_at}"
+      puts "\n"
+    end
+  end
+
+  def create_game
+    puts 'Enter the game multiplayer: '
+    multiplayer = gets.chomp
+    puts 'Enter the last date it was played (YYYY-MM-DD): '
+    last_played_at = gets.chomp
+    puts "Enter the game's publish date (YYYY-MM-DD):"
+    publish_date = gets.chomp
+    puts 'Is it archived (Y/N): '
+    archived = gets.chomp
+    game = Game.new(multiplayer, last_played_at, publish_date, archived)
+    @games << game
+    games_list = @games.map do |e|
+      [
+        e.multiplayer,
+        e.archived,
+        e.publish_date,
+        e.last_played_at
+      ]
+    end
+    save_game(games_list)
+    puts 'Game added!'
+  end
+
+  def authors_list
+    Author.all.each_with_index do |author, index|
+      puts '**** Author List ****'
+      puts "
+      #{index} - Name: #{author.first_name} - Last Name: #{author.last_name}"
+      puts "\n"
+    end
   end
 
   def exit_app
