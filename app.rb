@@ -1,8 +1,11 @@
 require_relative './src/books'
 require_relative 'item'
+require_relative 'game'
+require_relative 'author'
 require_relative './src/label'
 require 'date'
 require 'json'
+require 'preserve_data'
 class App
   attr_reader :books
 
@@ -58,6 +61,24 @@ class App
     book = Book.new(publisher, cover_state, Date.parse(publish_date), false)
     @books << book
     puts 'Book added!'
+  end
+
+  def games_list
+    Game.all.each_with_index do |game, index|
+      puts '**** Games List ****'
+      puts "
+      #{index} - Multiplayer: #{game.multiplayer} - Last Played at: #{game.last_played_at}"
+      puts "\n"
+    end
+  end
+
+  def authors_list
+    Author.all.each_with_index do |author, index|
+      puts '**** Author List ****'
+      puts "
+      #{index} - Name: #{author.first_name} - Last Name: #{author.last_name}"
+      puts "\n"
+    end
   end
 
   def exit_app
