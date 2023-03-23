@@ -19,6 +19,7 @@ class App
     load_data
     @data_changed = false
     @games = []
+    @authors = []
   end
 
   def load_data
@@ -77,6 +78,28 @@ class App
       last_played = Date.parse(game['last_played_at'])
       date = Date.parse(game['publish_date'])
       @games << Game.new(game['multiplayer'], last_played, date, game['archived'])
+    end
+  end
+
+  def load_authors
+    return unless File.file?('authors.json')
+
+    authors_data = JSON.parse(File.read('authors.json'))
+    authors_data.each do |author|
+      @authors << Author.new(author['first_name'], author['last_name'])
+    end
+  end
+
+  def list_authors
+    if @authors.empty?
+      puts 'No authors available'
+    else
+      @authors.each_with_index do |author, index|
+        puts '*** Author List ***'
+        puts "
+        #{index} - Author name: #{author.first_name}, #{author.last_name}"
+        puts "\n"
+      end
     end
   end
 
