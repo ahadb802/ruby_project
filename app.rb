@@ -4,13 +4,18 @@ require_relative 'game'
 require_relative 'author'
 require_relative 'preserve_data'
 require_relative './src/label'
+require_relative './src/album_list'
+require_relative './src/genre_list'
 require 'date'
 require 'json'
 class App
+  attr_accessor :albums, :genres
   attr_reader :books
 
   def initialize
     @books = []
+    @albums = AlbumList.new
+    @genres = GenreList.new
     load_data
     @data_changed = false
     @games = []
@@ -122,6 +127,7 @@ class App
 
   def exit_app
     save_data
+    @albums.save_albums
     puts 'Thanks For Using me'
     exit
   end
