@@ -1,4 +1,5 @@
 require './item'
+
 class Book < Item
   attr_reader :publisher, :cover_state
 
@@ -12,3 +13,4 @@ class Book < Item
   #   super || @cover_state == 'bad'
   # end
 end
+
