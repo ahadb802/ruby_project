@@ -14,4 +14,13 @@ class GenreList
     @genres << Genre.new(genre_name)
     puts 'Genre registered succesfully'
   end
+
+  def save_genres
+    genres = @genres.map do |genre|
+      {
+        name: genre.name
+      }
+    end
+    @genres_data.write(genres)
+  end
 end
