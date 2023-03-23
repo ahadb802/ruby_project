@@ -1,7 +1,7 @@
 require './item'
 
 class Genre
-  attr_accessor :name
+  attr_accessor :name, :items, :genre
 
   def initialize(name)
     @id = Time.now.to_f.to_s
@@ -10,7 +10,7 @@ class Genre
   end
 
   def add_item(item)
-    items << item
-    item.genre = self
+    @items << item
+    item.genre(self)
   end
 end
