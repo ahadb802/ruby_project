@@ -4,7 +4,7 @@ require_relative '../game'
 
 describe Author do
   context 'Author class tests' do
-    author = Author.new(first_name: 'Michael', last_name: 'Jordan')
+    author = Author.new('Michael', 'Jordan')
 
     describe '#new' do
       it 'returns a new object' do
