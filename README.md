@@ -187,7 +187,8 @@ To run the project, execute the following command:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- [Live demo link]("./presentation.mp4")
+https://user-images.githubusercontent.com/55840999/227365678-53330d23-bbfb-4438-8dc6-5b88661fe22f.mp4
+- [Live demo link](https://user-images.githubusercontent.com/55840999/227365678-53330d23-bbfb-4438-8dc6-5b88661fe22f.mp4)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- AUTHORS -->
