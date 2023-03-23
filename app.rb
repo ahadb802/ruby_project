@@ -69,7 +69,9 @@ class App
 
     games_data = JSON.parse(File.read('games.json'))
     games_data.each do |game|
-      @games << Game.new(game['multiplayer'], Date.parse(game['last_played_at']), Date.parse(game['publish_date']), game['archived'])
+      last_played = Date.parse(game['last_played_at'])
+      date = Date.parse(game['publish_date'])
+      @games << Game.new(game['multiplayer'], last_played, date, game['archived'])
     end
   end
 
