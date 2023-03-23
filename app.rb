@@ -1,13 +1,16 @@
 require_relative './src/books'
 require_relative 'item'
 require_relative './src/label'
+require_relative './src/album_list'
 require 'date'
 require 'json'
 class App
+  attr_accessor :albums
   attr_reader :books
 
   def initialize
     @books = []
+    @albums = AlbumList.new
     load_data
     @data_changed = false
   end
@@ -62,6 +65,7 @@ class App
 
   def exit_app
     save_data
+    @albums.save_albums
     puts 'Thanks For Using me'
     exit
   end
