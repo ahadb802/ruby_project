@@ -80,7 +80,7 @@ class App
       @games.each_with_index do |game, index|
         puts '**** Games List ****'
         puts "
-        #{index} - Multiplayer: #{game.multiplayer} - Last Played at: #{game.last_played_at}"
+        #{index} - Multiplayer Name: #{game.multiplayer} - Last Played at: #{game.last_played_at}"
         puts "\n"
       end
     end
