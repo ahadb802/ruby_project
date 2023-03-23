@@ -13,7 +13,6 @@ menu.add_option('List all Games', -> { app.games_list })
 menu.add_option('List all Authors', -> { app.list_authors })
 menu.add_option('Create a Book', -> { app.add_book })
 menu.add_option('Create a Music Album', -> { app.albums.add_album })
-menu.add_option('Create a Book', -> { app.add_book })
 menu.add_option('Create a game', -> { app.create_game })
 menu.add_option('Quit', -> { app.exit_app })
 menu.show
