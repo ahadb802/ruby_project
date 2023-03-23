@@ -72,6 +72,18 @@ class App
     end
   end
 
+  def create_game
+    puts 'Enter the game multiplayer: '
+    multiplayer = gets.chomp
+    puts 'Enter the last date it was played (YYYY-MM-DD): '
+    played_date = gets.chomp
+    puts "Enter the book's publish date (YYYY-MM-DD):"
+    publish_date = gets.chomp
+    game = Game.new(multiplayer, played_date, Date.parse(publish_date))
+    @game << game
+    puts 'Book added!'
+  end
+
   def authors_list
     Author.all.each_with_index do |author, index|
       puts '**** Author List ****'
